@@ -4,6 +4,7 @@
   "description": "another-todo API",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint **/*.js",
     "start": "set DEBUG=another-todo:* && node bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
