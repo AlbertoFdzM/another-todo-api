@@ -1,6 +1,12 @@
 const express = require('express')
+const logger = require('morgan')
 const app = express()
 const v1 = require('./v1')
+
+/**
+ * Middlewares
+ */
+app.use(logger('dev'))
 
 /**
  * Ensure JSON acceptance
