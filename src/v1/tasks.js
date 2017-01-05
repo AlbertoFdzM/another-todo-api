@@ -1,47 +1,47 @@
 const router = require('express').Router()
-
-let tasks = [
-  {
-    description: 'Another task',
-    isDone: false,
-    createdAt: Date.now()
-  }
-]
+const Task = require('../models/task')
 
 router.route('/')
 
   .get((req, res, next) => {
-    return res.json(tasks)
+    Task.find((err, tasks) => {
+      if (err) return next(err)
+
+      return res.json(tasks)
+    })
   })
 
   .post((req, res, next) => {
-    const newTask = req.body
+    Task.create(req.body, (err, task) => {
+      if (err) return next(err)
 
-    newTask.createdAt = Date.now()
-    newTask.isDone = false
-    tasks.push(newTask)
-
-    return res.status(201).json(newTask)
+      return res.status(201).json(task)
+    })
   })
 
   .delete((req, res, next) => {
-    tasks = []
+    Task.remove((err) => {
+      if (err) return next(err)
+
+      return res.status(204).end()
+    })
 
     res.status(204).end()
   })
 
 router.param('taskId', (req, res, next, id) => {
-  const task = tasks[id]
-  let err
+  Task.findById(id, (err, task) => {
+    if (err) return next(err)
 
-  if (!task) {
-    err = new Error('Task not found')
-    err.status = 404
-  } else {
-    req.task = task
-  }
+    if (!task) {
+      err = new Error('Task not found')
+      err.status = 404
+    } else {
+      req.task = task
+    }
 
-  return next(err)
+    return next(err)
+  })
 })
 
 router.route('/:taskId')
@@ -50,26 +50,39 @@ router.route('/:taskId')
     return res.json(req.task)
   })
 
-  .post((req, res, next) => {
-    const updatedTask = req.body
+  .put((req, res, next) => {
+    Task.findByIdAndUpdate(req.task.id, {
+      $set: req.body
+    }, {
+      new: true,
+      overwrite: true,
+      runValidators: true
+    }, (err, task) => {
+      if (err) return next(err)
 
-    tasks[req.params.taskId] = updatedTask
-
-    return res.json(updatedTask)
+      return res.json(task)
+    })
   })
 
   .patch((req, res, next) => {
-    for (let prop in req.body) {
-      tasks[req.params.taskId][prop] = req.body[prop]
-    }
+    Task.findByIdAndUpdate(req.task.id, {
+      $set: req.body
+    }, {
+      new: true,
+      runValidators: true
+    }, (err, task) => {
+      if (err) return next(err)
 
-    return res.json(tasks[req.params.taskId])
+      return res.json(task)
+    })
   })
 
   .delete((req, res, next) => {
-    tasks.splice(req.params.taskId, 1)
+    Task.findByIdAndRemove(req.task.id, (err) => {
+      if (err) return next(err)
 
-    res.status(204).end()
+      res.status(204).end()
+    })
   })
 
 module.exports = router
