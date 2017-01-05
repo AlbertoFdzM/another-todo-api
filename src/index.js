@@ -3,6 +3,10 @@ const logger = require('morgan')
 const bodyParser = require('body-parser')
 const app = express()
 const v1 = require('./v1')
+const db = require('./db')
+
+// Connect to DB
+db.connect()
 
 /**
  * Middlewares
