@@ -3,3 +3,133 @@ FORMAT: 1A
 # Another TODO
 
 Another TODO API is that, another TODO API.
+
+# Group Tasks
+
+Resources related to the tasks in the API.
+
+## Tasks Collection [/tasks]
+
+### List All Tasks [GET]
+
++ Response 200 (application/json)
+
+        [
+          {
+            "__v": 0,
+            "updatedAt": "2017-01-05T17:53:37.066Z",
+            "createdAt": "2017-01-05T17:53:37.066Z",
+            "_id": "586e88217106b038d820a54e",
+            "isDone": false,
+            "description": "test"
+          },
+          {
+            "__v": 0,
+            "updatedAt": "2017-01-05T17:53:55.067Z",
+            "createdAt": "2017-01-05T17:53:55.067Z",
+            "_id": "586e88337106b038d820a54f",
+            "isDone": false,
+            "description": "test"
+          }
+        ]
+
+### Create a New Task [POST]
+
++ Attributes
+    + description: `Buy milk` (string) - Task description
+    + isDone: false (boolean, required) - Done status
+
++ Request (application/json)
+
+        {
+          "description": "Buy milk",
+          "isDone": false
+        }
+
++ Response 201 (application/json)
+
+        {
+          "__v": 0,
+          "updatedAt": "2017-04-09T16:30:42.010Z",
+          "createdAt": "2017-04-09T16:30:42.010Z",
+          "_id": "586e88337106b038d820a54f",
+          "isDone": false,
+          "description": "Buy milk"
+        }
+
+## Task [/tasks/{taskId}]
+
++ Parameters
+
+  + taskId: `586e88337106b038d820a54f` (string) - ID if the task
+
+### View a Task [GET]
+
++ Response 200 (application/json)
+
+        {
+          "__v": 0,
+          "updatedAt": "2017-04-09T16:30:42.010Z",
+          "createdAt": "2017-04-09T16:30:42.010Z",
+          "_id": "586e88337106b038d820a54f",
+          "isDone": false,
+          "description": "Buy milk"
+        }
+
+### Edit a whole Task [PUT]
+
++ Attributes
+    + description: `Buy milk` (string) - Task description
+    + isDone: true (boolean, required) - Done status
+
++ Request (application/json)
+
+        {
+          "description": "Buy milk",
+          "isDone": true
+        }
+
++ Response 200 (application/json)
+
+        {
+          "__v": 0,
+          "updatedAt": "2017-04-09T16:30:42.010Z",
+          "createdAt": "2017-04-09T16:30:42.010Z",
+          "_id": "586e88337106b038d820a54f",
+          "isDone": true,
+          "description": "Buy milk"
+        }
+
+### Edit a Task partially [PATCH]
+
++ Attributes
+    + description: `Buy more milk` (string) - Task description
+    + isDone: true (boolean) - Done status
+
++ Request (application/json)
+
+        {
+          "description": "Buy more milk"
+        }
+
+
++ Response 200 (application/json)
+
+        + Attributes (Task)
+
+### Delete a Task [DELETE]
+
++ Response 204
+
+
+
+
+## Data Structures
+
+### Task
+
++ _id: `586e88337106b038d820a54f` (string, required) - Task's ID
++ description: `Buy more milk` (string, required) - Task's description
++ isDone: false (boolean, required) - Done status
++ createdAt: `2017-04-09T16:30:42.010Z` (string, required) - Task's created date
++ updatedAt: `2017-04-09T16:30:42.010Z` (string, required) - Task's update date
