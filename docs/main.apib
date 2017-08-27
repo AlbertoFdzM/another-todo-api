@@ -12,7 +12,7 @@ Resources related to the tasks in the API.
 
 ### List All Tasks [GET]
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         [
           {
@@ -39,14 +39,14 @@ Resources related to the tasks in the API.
     + description: `Buy milk` (string) - Task description
     + isDone: false (boolean, required) - Done status
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
         {
           "description": "Buy milk",
           "isDone": false
         }
 
-+ Response 201 (application/json)
++ Response 201 (application/json; charset=utf-8)
 
         {
           "__v": 0,
@@ -65,7 +65,7 @@ Resources related to the tasks in the API.
 
 ### View a Task [GET]
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
           "__v": 0,
@@ -82,14 +82,14 @@ Resources related to the tasks in the API.
     + description: `Buy milk` (string) - Task description
     + isDone: true (boolean, required) - Done status
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
         {
           "description": "Buy milk",
           "isDone": true
         }
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         {
           "__v": 0,
@@ -106,14 +106,14 @@ Resources related to the tasks in the API.
     + description: `Buy more milk` (string) - Task description
     + isDone: true (boolean) - Done status
 
-+ Request (application/json)
++ Request (application/json; charset=utf-8)
 
         {
           "description": "Buy more milk"
         }
 
 
-+ Response 200 (application/json)
++ Response 200 (application/json; charset=utf-8)
 
         + Attributes (Task)
 
