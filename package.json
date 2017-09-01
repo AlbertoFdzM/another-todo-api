@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "start": "set DEBUG=another-todo:* && node bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "dredd"
   },
   "author": "Alberto Fernandez <albertofdzm@gmail.com> (http://onlythepixel.com)",
   "license": "MIT",
@@ -18,6 +18,7 @@
     "morgan": "^1.8.2"
   },
   "devDependencies": {
+    "dredd": "^4.4.0",
     "eslint": "^4.5.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
