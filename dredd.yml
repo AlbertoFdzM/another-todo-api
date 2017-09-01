@@ -1,6 +1,6 @@
 # https://dredd.readthedocs.io/en/latest/usage-cli.html#configuration-file
 dry-run: null
-hookfiles: null
+hookfiles: ./docs/hooks.js            # Here, we are telling dredd where are the hooks files
 language: nodejs
 sandbox: false
 server: npm start                     # Command to start the API server
