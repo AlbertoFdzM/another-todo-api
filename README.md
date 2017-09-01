@@ -6,3 +6,4 @@ You can read how this code was made on the posts:
 1. [API Routing with Express](http://onlythepixel.com/2016/12/17/api-routing-with-express/)
 1. [Mongoose, MongoDB and Express](http://onlythepixel.com/2017/01/05/mongoose-mongodb-and-express/)
 1. [Documenting your API with API Blueprint](http://onlythepixel.com/2017/08/25/documenting-your-api-with-api-blueprint/)
+1. [Testing an API Against Documentation](http://onlythepixel.com/2017/09/06/testing-an-api-against-documentation/)
