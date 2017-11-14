@@ -1,5 +1,7 @@
 # Another boring TODO API
 
+[![Build Status](https://travis-ci.org/AlbertoFdzM/another-todo-api.svg?branch=master)](https://travis-ci.org/AlbertoFdzM/another-todo-api)
+
 You can read how this code was made on the posts:
 
 1. [Making APIs With Node and Express](http://onlythepixel.com/2016/12/11/making-apis-with-node-and-express/)
