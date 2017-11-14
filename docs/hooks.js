@@ -1,3 +1,4 @@
+'use strict'
 // Import the hooks library to work with them (injected by dredd)
 const hooks = require('hooks')
 // Create some shorthand functions for the hooks
