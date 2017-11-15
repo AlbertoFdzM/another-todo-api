@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict'
 /**
  * Created from https://github.com/expressjs/generator/blob/d07ce53595086dd07efb100279a7b7addc059418/templates/js/www
  */
@@ -52,11 +53,9 @@ function onError (error) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges')
       process.exit(1)
-      break
     case 'EADDRINUSE':
       console.error(bind + ' is already in use')
       process.exit(1)
-      break
     default:
       throw error
   }

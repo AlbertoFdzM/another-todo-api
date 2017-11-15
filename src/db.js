@@ -1,3 +1,5 @@
+'use strict'
+
 const mongoose = require('mongoose')
 const debug = require('debug')
 const log = debug('another-todo:database')
