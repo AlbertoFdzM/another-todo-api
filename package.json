@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "start": "set DEBUG=another-todo:* && node bin/www",
-    "test": "dredd"
+    "test": "npm run test:scripts && npm run test:docs",
+    "test:docs": "dredd",
+    "test:scripts": "mocha"
   },
   "author": "Alberto Fernandez <albertofdzm@gmail.com> (http://onlythepixel.com)",
   "license": "MIT",
