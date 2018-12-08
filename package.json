@@ -11,11 +11,11 @@
   "author": "Alberto Fernandez <albertofdzm@gmail.com> (http://onlythepixel.com)",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "debug": "^3.0.1",
-    "express": "^4.15.4",
-    "mongoose": "^4.11.8",
-    "morgan": "^1.8.2"
+    "body-parser": "^1.18.2",
+    "debug": "^3.1.0",
+    "express": "^4.16.0",
+    "mongoose": "^4.11.14",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "dredd": "^4.4.0",
